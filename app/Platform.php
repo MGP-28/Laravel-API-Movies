@@ -1,0 +1,19 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Platform extends Model
+{
+    public function games() {
+        return $this->belongsToMany(Game::class);
+    }
+
+    protected $fillable = [
+        'name'
+    ];
+
+    use softDeletes;
+}
