@@ -15,5 +15,9 @@ class Genre extends Model
         'name'
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     use softDeletes;
 }

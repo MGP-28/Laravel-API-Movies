@@ -15,7 +15,8 @@ class GenreController extends Controller
     public function index()
     {
         try {
-            return response()->json(Genre::with(['games'])->get(), 200);
+            //return response()->json(Genre::with(['games'])->get(), 200);
+            return response()->json(Genre::all(), 200);
         }catch (\Exception $exception) {
             return response()->json(['error' =>$exception], 500);
         }
@@ -61,7 +62,7 @@ class GenreController extends Controller
     public function show(Genre $genre)
     {
         try {
-            $genre->load(['games']);
+            //$genre->load(['games']);
             return response()->json($genre, 200);
         }catch (\Exception $exception) {
             return response()->json(['error' =>$exception], 500);

@@ -15,7 +15,8 @@ class PlatformController extends Controller
     public function index()
     {
         try {
-            return response()->json(Platform::with(['games'])->get(), 200);
+            //return response()->json(Platform::with(['games'])->get(), 200);
+            return response()->json(Platform::all(), 200);
         }catch (\Exception $exception) {
             return response()->json(['error' =>$exception], 500);
         }
@@ -61,7 +62,7 @@ class PlatformController extends Controller
     public function show(Platform $platform)
     {
         try {
-            $platform->load(['games']);
+            //$platform->load(['games']);
             return response()->json($platform, 200);
         }catch (\Exception $exception) {
             return response()->json(['error' =>$exception], 500);

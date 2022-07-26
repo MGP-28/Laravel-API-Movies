@@ -11,6 +11,17 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $genresNames = [
+            'Adventure',
+            'Drama'
+        ];
+
+        foreach ($genresNames as $genreName){
+            \DB::table('genres') -> insert([
+                'name' => $genreName,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
     }
 }

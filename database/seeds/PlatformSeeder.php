@@ -11,6 +11,18 @@ class PlatformSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $platformsNames = [
+            'XBOX One',
+            'PS5',
+            'PC'
+        ];
+
+        foreach ($platformsNames as $platformName){
+            \DB::table('platforms') -> insert([
+                'name' => $platformName,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
     }
 }

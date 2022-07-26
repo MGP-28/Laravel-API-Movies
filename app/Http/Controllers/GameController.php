@@ -43,7 +43,7 @@ class GameController extends Controller
             $game = Game::create($request->all());
 
             $game->genres()->sync($request->genres);
-            $game->genres()->sync($request->platforms);
+            $game->platforms()->sync($request->platforms);
 
             return response()->json($game, 200);
 
@@ -62,7 +62,7 @@ class GameController extends Controller
     public function show(Game $game)
     {
         try {
-            $game->load(['genres','platforms']);
+            $game->load(['genres', 'platforms']);
             return response()->json($game, 200);
         }catch (\Exception $exception) {
             return response()->json(['error' =>$exception], 500);
@@ -93,7 +93,7 @@ class GameController extends Controller
             $game->update($request->all());
 
             if($request->genres != null) $game->genres()->sync($request->genres);
-            if($request->platforms != null) $game->genres()->sync($request->platforms);
+            if($request->platforms != null) $game->platforms()->sync($request->platforms);
 
             return response()->json($game, 200);
 

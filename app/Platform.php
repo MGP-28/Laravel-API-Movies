@@ -15,5 +15,9 @@ class Platform extends Model
         'name'
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     use softDeletes;
 }
